@@ -28,13 +28,10 @@ turn-shift token between turns.
   - source env: `conda source turngpt`
 * PyTorch: `conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch`
 * Dependencies: `pip install -r requirements.txt`
-* Install [Datasets turn-taking](https://github.com/ErikEkstedt/datasets_turntaking)
-    - clone repo, cd to repo, and install dependencies: `pip install -r requirements.txt`
-    - install repo: `pip install -e .`
 * cd into this repo and install turngpt: `pip install -e .`
 
 
-# Notes 
+# Notes
 
 * Warning: This "simplified" branch does not incoorperate spoken-dialogs (switchboard, maptask) because the data have to be downloaded separetely.
 * Warning: The Analysis from the paper is not provided in this repo but simpler training of the model.
@@ -104,7 +101,7 @@ decoded_input = tokenizer.decode(outputs['input_ids']) # arugment must be a list
 
 The [Pytorch-Lightning](https://pytorch-lightning.readthedocs.io/) model is a wrapper which loads pretrained models (GPT2, DialoGPT) from [huggingface transformers library](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
 
-### Starting Fresh 
+### Starting Fresh
 
 An un-trained TurnGPT model, loads pre-trained weights by default, and includes the tokenizer.
 
