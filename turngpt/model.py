@@ -498,8 +498,9 @@ class TurnGPT(pl.LightningModule, Utils):
 
         hidden_states = transformer_outputs[0]
 
-        # Set device for model parallelism
-        if self.transformer.model_parallel:
+        # Set device for model parallelism (if enabled)
+        # Note: model_parallel attribute may not exist in newer transformers versions
+        if hasattr(self.transformer, 'model_parallel') and self.transformer.model_parallel:
             torch.cuda.set_device(self.transformer.transformer.first_device)
             hidden_states = hidden_states.to(self.transformer.lm_head.weight.device)
 
